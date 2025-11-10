@@ -15,33 +15,33 @@ const addBtn = document.getElementById("add-card-btn");
 const newTermInput = document.getElementById("new-term");
 const newDefInput = document.getElementById("new-definition");
 
-// Display current card
+
 function displayCard() {
   const currentCard = flashcards[currentIndex];
   cardContent.textContent = showingTerm ? currentCard.term : currentCard.definition;
 }
 
-// Flip between term and definition
+
 flashcard.addEventListener("click", () => {
   showingTerm = !showingTerm;
   displayCard();
 });
 
-// Go to next card (loop back)
+
 nextBtn.addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % flashcards.length;
   showingTerm = true;
   displayCard();
 });
 
-// Go to previous card (loop back)
+
 prevBtn.addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
   showingTerm = true;
   displayCard();
 });
 
-// Add new card
+
 addBtn.addEventListener("click", () => {
   const newTerm = newTermInput.value.trim();
   const newDef = newDefInput.value.trim();
@@ -56,5 +56,5 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-// Show first card when page loads
+
 window.onload = displayCard;
